@@ -3,10 +3,11 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-nativ
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 
-export const Nombre = () => {
+export const Nombre = ({route}) => {
     // Hook para redireccionar
     const navigation = useNavigation();
     const [inputTexto, guardarInputTexto] = useState('');
+
     const guardarDatos = async () => {
         try {
             await AsyncStorage.setItem('nombre', inputTexto);

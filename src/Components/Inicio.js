@@ -31,7 +31,7 @@ export const Inicio = () => {
 
     useEffect(() => {
         obtenerDatosStorage();
-    }, []);
+    });
 
     return (
         <View style={styles.contenedor}>

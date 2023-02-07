@@ -7,7 +7,7 @@ import { Inicio } from './src/Components/Inicio';
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const App = ({  }) => {
     const [nombreStorage, guardarNombreStorage] = useState('');
     const obtenerDatosStorage = async () => {
         try {
@@ -21,20 +21,20 @@ const App = () => {
         obtenerDatosStorage();
     }, []);
 
-    const initialRoute = nombreStorage || 'Nombre';
     return (
         <NavigationContainer>
             <Stack.Navigator
                 screenOptions={{ headerShown: false }}
-                initialRouteName={initialRoute}
             >
                 <Stack.Screen
                     name="Inicio"
                     component={Inicio}
+                    initialParams={{nombreStorage}}
                 />
                 <Stack.Screen
                     name="Nombre"
                     component={Nombre}
+                    initialParams={{nombreStorage}}
                 />
             </Stack.Navigator>
         </NavigationContainer>
